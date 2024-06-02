@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+  
+<head>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script src="js.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,
+    innitial-scale=1.0">
+    <title>БЕЛОЯРСКАЯ СРЕДНЯЯ ОБЩЕОБРАЗОВАТЕЛЬНАЯ ШКОЛА № 18</title>
+</head>
+<header>
+    <input type="checkbox" id="ham-menu">
+<label for="ham-menu">
+  <div class="hide-des">
+    <span class="menu-line"></span>
+    <span class="menu-line"></span>
+    <span class="menu-line"></span>
+    <span class="menu-line"></span>
+    <span class="menu-line"></span>
+    <span class="menu-line"></span>
+  </div>
+
+</label>
+<div class="full-page-green"></div>
+<div class="ham-menu">
+  <ul class="centre-text bold-text">
+    
+    <script type="text/javascript">
+      var lastResFind=""; // последний удачный результат
+      var copy_page=""; // копия страницы в ихсодном виде
+      function TrimStr(s) {
+           s = s.replace( /^\s+/g, '');
+        return s.replace( /\s+$/g, '');
+      }
+      function FindOnPage(inputId) {//ищет текст на странице, в параметр передается ID поля для ввода
+        var obj = window.document.getElementById(inputId);
+        var textToFind;
+        
+        if (obj) {
+          textToFind = TrimStr(obj.value);//обрезаем пробелы
+        } else {
+          alert("Введенная фраза не найдена");
+          return;
+        }
+        if (textToFind == "") {
+          alert("Вы ничего не ввели");
+          return;
+        }
+         
+        if(document.body.innerHTML.indexOf(textToFind)=="-1")
+        alert("Ничего не найдено, проверьте правильность ввода!");
+         
+        if(copy_page.length>0)
+              document.body.innerHTML=copy_page;
+        else copy_page=document.body.innerHTML;
+       
+         
+        document.body.innerHTML = document.body.innerHTML.replace(eval("/name="+lastResFind+"/gi")," ");//стираем предыдущие якори для скрола
+        document.body.innerHTML = document.body.innerHTML.replace(eval("/"+textToFind+"/gi"),"<a name="+textToFind+" style='background:red'>"+textToFind+"</a>"); //Заменяем найденный текст ссылками с якорем;
+        lastResFind=textToFind; // сохраняем фразу для поиска, чтобы в дальнейшем по ней стереть все ссылки
+        window.location = '#'+textToFind;//перемещаем скрол к последнему найденному совпадению
+       } 
+      </script>
+      <input style="width: 205px;
+      height: 50px;" type="text" id="text-to-find" value="">
+    <input class="glow-on-hover"  type="button" onclick="javascript: FindOnPage('text-to-find'); return false;" value="Искать на странице"/>
+    <br/>
+    <li><button class="glow-on-hover" type="button"><a href="index.html">Главная</a></button></li>
+    <li><button class="glow-on-hover" type="button"><a href="nagradi.html">Грамоты и награды</a></button></li>
+    <li><button class="glow-on-hover" type="button"><a href="gallery.html">Галерея</a></button></li>
+    <li><button class="glow-on-hover" type="button"><a href="questions.html">Обратная связь</a></button></li>
+    <li><button class="glow-on-hover" type="button"><a href="documentation.html">Документы</a></button></li>
+    <li><button class="glow-on-hover" type="button"><a href="ludi.html">Выпускники и учителя</a></button></li>
+      </ul>
+  </div>
+    </header>
+      <div id="clear"></div>
+        <div id="name">
+<p style="font-size:30px; color:#010000; font-weight:bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);"><span style="background:#f8fc8c;"><br>Архив<br>Муниципальное автономное общеобразовательное учреждение <br>Белоярская средняя общеобразовательная школа № 18<br><br></span></p>
+</div>
+
+<body>
+      <div id="sait"><div id="osnovnai">
+        <form action="php.php" method="post" style="text-align: center;">
+            <label>
+                <h1>Есть вопрос или не нашли нужную информацию?<br>
+                    Можете оставить запрос!</h1>
+                Ваше имя:
+                <input type="text" name="name" placeholder="Иван Иванов">
+            </label>
+               
+            <label>
+                Электронная почта:
+                <input type="email" name="email" placeholder="example@email.com">
+            </label>
+            <label>
+                Ваш вопрос:
+                <textarea name="comment" placeholder="Что вас интересует?"></textarea>
+            </label>
+            <button type="submit">
+                Отправить
+            </button>
+        </form>
+        </div>
+               <!-- Подвал сайта с контактной информацией -->
+            <footer>
+                <div class="content">
+                    <div class="footer__main">
+                        <div class="footer__info"><p>© Белоярская средняя общеобразовательная школа № 18</p><p>Адрес:624033, Свердловская область, Белоярский район, р. п. Белоярский, ул. Молодежная, д. 42а</p><p>Контактные телефоны: 8 (343 77) 4-75-49<br>
+                        email: bel.shkola18@yandex.ru<br><p>&copy;Все права защищены</p></p></div>
+                    </div>
+                </div>
+            </footer>
+            </div>
+        </body>
+</html>
