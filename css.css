@@ -169,7 +169,6 @@ label[for="ham-menu"] {
   flex-flow: column nowrap;
   justify-content: space-around;
   padding: 20px;
-  height: 30%;
 }
 .ham-menu > ul > li {
   font-size: 5rem;
